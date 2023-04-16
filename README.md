@@ -60,18 +60,10 @@
 <table align="center">
 <tr>
 <td>
-<a href="https://github.com/officialaritro/github-readme-stats"><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=officialaritro&layout=compact&theme=radical&hide_border=true" height="200"/></a>
-</td>
-<td>
-<a href="https://github.com/officialaritro/github-readme-stats"><img align="center" src="https://github-readme-stats.vercel.app/api?username=officialaritro&show_icons=true&include_all_commits=true&theme=radical&hide_border=true" alt="Aritro's github stats" height="200" /></a>
-</td>
-</tr>
-</table>
-<!-- <br> -->
-<p align="center">
-<img align="center" [![Aritro's GitHub stats](https://github-readme-stats.vercel.app/api?username=officialaritro)](https://github.com/officialaritro/github-readme-stats)
- />
-</p>
+
+| <a href="https://github.com/officialaritro/github-readme-stats"><img align="center" src="https://github-readme-stats.vercel.app/api?username=officialaritro&show_icons=true&include_all_commits=true&theme=buefy&hide_border=true" alt="Aritro's github stats" /></a> | <a href="https://github.com/officialaritro/github-readme-stats"><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=officialaritro&layout=compact&theme=buefy&hide_border=true" /></a> |
+| ------------- | ------------- |
+
 <br>
 
 <img src="https://github.com/ArshErgon/ArshErgon/blob/main/assets/header/lineBar.png" width="100%" height="8px"/>
