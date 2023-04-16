@@ -76,5 +76,5 @@
 </p>
 
 <p align="center" width="100%">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradientn&height=150&width=100%&section=footer&text=Have%20a%20Nice%20Day"/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=150&width=100%&section=footer&text=Have%20a%20Nice%20Day"/>
 </p>
