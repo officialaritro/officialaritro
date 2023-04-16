@@ -3,12 +3,6 @@
 <!-- 
 ![banner](https://user-images.githubusercontent.com/74407205/231990386-c5d1c57e-da3d-467e-9d66-0614fe7a72c2.png)
 <img src="https://github.com/ArshErgon/ArshErgon/blob/main/assets/header/lineBar.png" width="100%" height="8px"/> -->
-
-<p align="center"> 
-  Visitor count<br>
-  <img src="https://views-counter.vercel.app/badge?pageId=officialaritro%2FViews-Counter&rightColor=00994d&label=Total-Viewers&type=total" "alt="Views Counter">
-  <img src="https://views-counter.vercel.app/badge?pageId=officialaritro%2FViews-Counter&rightColor=00994d&label=Daily-Viewers&type=daily" "alt="Views Counter">
-</p>
 <h1 align="center">
   <a href="https://git.io/typing-svg">
     <img src="https://readme-typing-svg.demolab.com?font=Major+Mono+Display&size=50&pause=10000&color=7BF7ED&center=true&vCenter=true&width=550&height=100&lines=I'm+Aritro+Roy!">
@@ -22,6 +16,12 @@
 - 👯 I’m looking to collaborate on OpenSource Projects.
 - 🤔 I’m looking for help in learning Firebase and React.
 - ⚡ Fun fact: enjoys playing FPS and is passionate about music.
+
+<p align="center"> 
+  Visitor count<br>
+  <img src="https://views-counter.vercel.app/badge?pageId=officialaritro%2FViews-Counter&rightColor=00994d&label=Total-Viewers&type=total" "alt="Views Counter">
+  <img src="https://views-counter.vercel.app/badge?pageId=officialaritro%2FViews-Counter&rightColor=00994d&label=Daily-Viewers&type=daily" "alt="Views Counter">
+</p>
 
 <br>
 
