@@ -61,7 +61,7 @@
 <tr>
 <td>
 
-| <a href="https://github.com/officialaritro/github-readme-stats"><img align="center" src="https://github-readme-stats.vercel.app/api?username=officialaritro&show_icons=true&include_all_commits=true&theme=buefy&hide_border=true" alt="Aritro's github stats" /></a> | <a href="https://github.com/officialaritro/github-readme-stats"><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=officialaritro&layout=compact&theme=buefy&hide_border=true" /></a> |
+| <a href="https://github.com/officialaritro/github-readme-stats"><img align="center" src="https://github-readme-stats.vercel.app/api?username=officialaritro&show_icons=true&include_all_commits=true&theme=transparent&hide_border=true" alt="Aritro's github stats" /></a> | <a href="https://github.com/officialaritro/github-readme-stats"><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=officialaritro&layout=compact&theme=buefy&hide_border=true" /></a> |
 | ------------- | ------------- |
 
 <br>
