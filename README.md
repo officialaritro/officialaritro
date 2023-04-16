@@ -6,7 +6,7 @@
 
 <p align="center"> 
   Visitor count<br>
-  <img src="[GitHub Profile Views Counter](https://komarev.com/ghpvc/?username=officialaritro)" />
+  <img src="https://komarev.com/ghpvc/?username=antonkomarev&style=for-the-badge">
 </p>
 <h1 align="center">
   <a href="https://git.io/typing-svg">
