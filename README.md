@@ -31,7 +31,7 @@
 
 <img align="left" alt="GIF" src="https://octodex.github.com/images/daftpunktocat-thomas.gif" height="200px"/>
 
-<a href="" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flutter/flutter-original.svg" alt="flutter" style="margin: 10px 10px 10px 10px;" width="60" height="60"/> </a>
+<a href="" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flutter/flutter-original.svg" alt="flutter" style="margin-right: 100px;" width="60" height="60"/> </a>
 <a href="" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dart/dart-original.svg" alt="dart" width="60" height="60"/> </a>
 <a href="" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/firebase/firebase-plain-wordmark.svg" alt="firebase" width="60" height="60"/> </a>
 <a href="" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/androidstudio/androidstudio-original.svg" alt="androidstudio" width="60" height="60"/> </a> <br>
