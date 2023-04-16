@@ -35,7 +35,7 @@
 <a href="" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="tailwind" width="60" height="60"/> </a> <br>
 <a href="" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg" alt="google cloud" width="60" height="60"/></a>
 <a href="" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="60" height="60"/> </a>
-<a href="" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/jira/jira-plain-wordmark.svg" alt="jira" width="60" height="60"/> </a>
+<a href="" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jira/jira-original-wordmark.svg" alt="jira" width="60" height="60"/> </a>
  
 <img src="https://github.com/ArshErgon/ArshErgon/blob/main/assets/header/lineBar.png" width="100%" height="8px"/>
 
