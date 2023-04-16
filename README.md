@@ -6,7 +6,7 @@
 
 <p align="center"> 
   Visitor count<br>
-  <img src="https://views-counter.vercel.app/badge?pageId=Kumara2mahe%2FViews-Counter" alt="Views Counter">
+  <img src="https://views-counter.vercel.app/badge?pageId=officialaritro%2FViews-Counter" alt="Views Counter">
 </p>
 <h1 align="center">
   <a href="https://git.io/typing-svg">
