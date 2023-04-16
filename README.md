@@ -6,7 +6,7 @@
 
 <p align="center"> 
   Visitor count<br>
-  ![GitHub Profile Views Counter](https://komarev.com/ghpvc/?username=officialaritro)
+  [GitHub Profile Views Counter](https://komarev.com/ghpvc/?username=officialaritro)
 </p>
 <h1 align="center">
   <a href="https://git.io/typing-svg">
