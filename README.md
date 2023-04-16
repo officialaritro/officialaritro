@@ -47,10 +47,10 @@
 
 <h3 align="left">Connect with me :</h3>
 <p align="center">
-  <a href="https://twitter.com/BittEkam"><img src="https://img.icons8.com/cute-clipart/64/000000/twitter.png"/></a> 
-  <a href="https://www.linkedin.com/in/ekam-bitt-584645203/"><img src="https://img.icons8.com/cute-clipart/64/000000/linkedin.png"/></a>
-  <a href="https://www.instagram.com/ekam.bitt28/"><img src="https://img.icons8.com/cute-clipart/64/000000/instagram-new.png"/></a>
-  <a href="mailto:ekambitt@gmail.com"><img src="https://img.icons8.com/cute-clipart/64/000000/gmail.png"/></a>
+  <a href="https://twitter.com/dopefaith1"><img src="https://img.icons8.com/cute-clipart/64/000000/twitter.png"/></a> 
+  <a href="https://www.linkedin.com/in/aritro-roy-090915242/"><img src="https://img.icons8.com/cute-clipart/64/000000/linkedin.png"/></a>
+  <a href="https://www.instagram.com/_.dxpe.gg._/"><img src="https://img.icons8.com/cute-clipart/64/000000/instagram-new.png"/></a>
+  <a href="mailto:officialaritro204@gmail.com"><img src="https://img.icons8.com/cute-clipart/64/000000/gmail.png"/></a>
 </p>
 
 <img src="https://github.com/ArshErgon/ArshErgon/blob/main/assets/header/lineBar.png" width="100%" height="8px"/>
@@ -60,10 +60,10 @@
 <table align="center">
 <tr>
 <td>
-<a href="https://github.com/Ekam-Bitt/github-readme-stats"><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Ekam-Bitt&layout=compact&theme=radical&hide_border=true" height="200"/></a>
+<a href="https://github.com/officialaritro/github-readme-stats"><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=officialaritro&layout=compact&theme=radical&hide_border=true" height="200"/></a>
 </td>
 <td>
-<a href="https://github.com/Ekam-Bitt/github-readme-stats"><img align="center" src="https://github-readme-stats.vercel.app/api?username=officialaritro&show_icons=true&include_all_commits=true&theme=radical&hide_border=true" alt="Ekam's github stats" height="200" /></a>
+<a href="https://github.com/officialaritro/github-readme-stats"><img align="center" src="https://github-readme-stats.vercel.app/api?username=officialaritro&show_icons=true&include_all_commits=true&theme=radical&hide_border=true" alt="Aritro's github stats" height="200" /></a>
 </td>
 </tr>
 </table>
