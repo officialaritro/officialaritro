@@ -6,7 +6,8 @@
 
 <p align="center"> 
   Visitor count<br>
-  ![](https://komarev.com/ghpvc/?username=officialaritro)
+  <!--
+  ![](https://komarev.com/ghpvc/?username=officialaritro) -->
 </p>
 
 <h1 align="center">
