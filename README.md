@@ -31,7 +31,7 @@
 
 <img align="left" alt="GIF" src="https://octodex.github.com/images/daftpunktocat-thomas.gif" height="200px"/>
 
-<a href="" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flutter/flutter-original.svg" alt="flutter" style="margin-right: 100px;" width="60" height="60"/> </a>
+<a href="" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flutter/flutter-original.svg" alt="flutter" width="60" height="60"/> </a>
 <a href="" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dart/dart-original.svg" alt="dart" width="60" height="60"/> </a>
 <a href="" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/firebase/firebase-plain-wordmark.svg" alt="firebase" width="60" height="60"/> </a>
 <a href="" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/androidstudio/androidstudio-original.svg" alt="androidstudio" width="60" height="60"/> </a> <br>
@@ -69,7 +69,8 @@
 </table>
 <!-- <br> -->
 <p align="center">
-<img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=officialaritro&theme=black-ice&hide_border=true&stroke=0000&background=060A0CD" />
+<img align="center" [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=anuraghazra)](https://github.com/anuraghazra/github-readme-stats)
+ />
 </p>
 <br>
 
@@ -83,5 +84,5 @@
 </p>
 
 <p align="center" width="100%">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=150&width=100%&section=footer&text=Have%20a%20Nice%20Day"/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradientn&height=150&width=100%&section=footer&text=Have%20a%20Nice%20Day"/>
 </p>
