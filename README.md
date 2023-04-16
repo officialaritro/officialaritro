@@ -6,8 +6,8 @@
 
 <p align="center"> 
   Visitor count<br>
+  ![GitHub Profile Views Counter](https://komarev.com/ghpvc/?username=officialaritro)
 </p>
-![banner](https://komarev.com/ghpvc/?username=officialaritro)
 <h1 align="center">
   <a href="https://git.io/typing-svg">
     <img src="https://readme-typing-svg.demolab.com?font=Major+Mono+Display&size=50&pause=10000&color=7BF7ED&center=true&vCenter=true&width=550&height=100&lines=I'm+Aritro+Roy!">
