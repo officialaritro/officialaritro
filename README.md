@@ -69,7 +69,7 @@
 </table>
 <!-- <br> -->
 <p align="center">
-<img align="center" [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=anuraghazra)](https://github.com/anuraghazra/github-readme-stats)
+<img align="center" [![Aritro's GitHub stats](https://github-readme-stats.vercel.app/api?username=officialaritro)](https://github.com/officialaritro/github-readme-stats)
  />
 </p>
 <br>
