@@ -6,7 +6,7 @@
 
 <p align="center"> 
   Visitor count<br>
-  <img src="https://views-counter.vercel.app/badge?pageId=officialaritro%2FViews-Counter&rightColor=00994d&label=Total-Viewers" "alt="Views Counter">
+  <img src="https://views-counter.vercel.app/badge?pageId=officialaritro%2FViews-Counter&rightColor=00994d&label=Total-Viewers&type=total" "alt="Views Counter">
   <img src="https://views-counter.vercel.app/badge?pageId=officialaritro%2FViews-Counter&rightColor=00994d&label=Daily-Viewers&type=daily" "alt="Views Counter">
 </p>
 <h1 align="center">
