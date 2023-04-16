@@ -6,7 +6,7 @@
 
 <p align="center"> 
   Visitor count<br>
-  <img src="https://profile-counter.glitch.me/officialaritro/count.svg" />
+  ![](https://komarev.com/ghpvc/?username=officialaritro)
 </p>
 
 <h1 align="center">
