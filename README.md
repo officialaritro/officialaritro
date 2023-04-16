@@ -29,7 +29,7 @@
 
 <h3 align="left">Tech Stack :</h3>
 
-<img align="left" alt="GIF" src="	https://octodex.github.com/images/daftpunktocat-thomas.gif" height="200px"/>
+<img align="left" alt="GIF" src="https://octodex.github.com/images/daftpunktocat-thomas.gif" height="200px"/>
 
 <a href="" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flutter/flutter-original.svg" alt="flutter" width="60" height="60"/> </a>
 <a href="" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dart/dart-original.svg" alt="dart" width="60" height="60"/> </a>
