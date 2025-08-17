@@ -2,7 +2,7 @@ name: Update Neofetch Card
 
 on:
   schedule:
-    - cron: "0 0 * * *" 
+    - cron: "0 0 * * *"
   workflow_dispatch:
   push:
     paths:
@@ -33,11 +33,17 @@ jobs:
           DOB_ISO: ${{ secrets.DOB_ISO }}
         run: node scripts/update_card.js
 
-      - name: Commit changes
+      - name: Debug
         run: |
+          ls -la
+          git status
+
+      - name: Commit changes
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           if [[ -n "$(git status --porcelain)" ]]; then
-            git config user.name github-actions
-            git config user.email github-actions@github.com
             git add aritro-neofetch.svg
             git commit -m "chore: update aritro-neofetch [skip ci]"
             git push
