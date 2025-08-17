@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" font-family="Consolas, monospace"
+     width="1100" height="650" font-size="13">
+  <style>
+    :root { --bg:#161b22; --fg:#c9d1d9; --muted:#616e7f; --key:#ffa657; --val:#a5d6ff; --add:#3fb950; --del:#f85149; }
+    @media (prefers-color-scheme: light) {
+      :root { --bg:#f6f8fa; --fg:#0b1117; --muted:#6a737d; --key:#bc4c00; --val:#0969da; --add:#1a7f37; --del:#d1242f; }
+    }
+    .key { fill: var(--key); }
+    .value { fill: var(--val); }
+    .addColor { fill: var(--add); }
+    .delColor { fill: var(--del); }
+    .muted { fill: var(--muted); }
+    text, tspan { white-space: pre; }
+  </style>
+
+  <rect x="0" y="0" width="1100" height="650" rx="18" fill="var(--bg)"/>
+
+  <!-- LEFT: ASCII Art -->
+  <text x="15" y="30" fill="var(--fg)" font-size="10" xml:space="preserve">
+                                       ..-+############+###++-..                                    
+                                   ..-+#########################+-.                                 
+                                 .-################################-.                               
+                               .-####################################.                              
+                            .-+#######################################+.                            
+                           .###########################################+.                           
+                          .##############################################.                          
+                          +###############################################.                         
+                          .##############################+################-                         
+                           ################################################.                        
+                           ################################################.                        
+                           #################+##############################.                        
+                           +#############+++++++########+##################.                        
+                           .#####+#######+++++++++++++####################.                         
+                            +###++##+++++++++#++++-++++##################.                          
+                            .+#++++--------+++++++----+++++++--+++###+##-                           
+                            .+#+#---+++####+++-++##++##++-++-+--++++++##.                           
+                            .##+++--++++++++-++++#---++++-+#####+++--+#-.                           
+                          .---++-+-------------+#+...-#+-----+++++---++..                           
+                          --+--+--+-....-------++.....-+------------+++++                           
+                          ----++----+-......--+--......-+--.-......+-+++-                           
+                          -.---+------------+-----...-----+-....------+--                           
+                         .-..--+----......----++##+--+##+------------+---                           
+                         .----++----........--+----+++++++--......---++--                           
+                         .----+++------...----++++---++++-----------+++--.                          
+                          --..+++--------++++-----------++++-------+++---                           
+                              .++------+++++++++++++++++++--++-----+++---                           
+                               ++++-----+++++--........-++#++++---+++....                           
+                               .++++------------.....---+--------++#-                               
+                               .++++++-------------------------+++++.                               
+                                .+++++-----------------------++++++.                                
+                                 .+++++--------...----------+++++#+                                 
+                                  -+##+++-----......-------++++##+-                                 
+                                  .++####++--------------++#####++.                                 
+                                  .+++######++++++++++++#######+++.                                 
+                                  .--+++#####################+++-+..                                
+                               ..+#+---++++++#############+++----+#+.                               
+                             ..+###++----+++-----++###++++-------+##+                               
+                             -#####++------------+++-------------####.                              
+                            +######+++----------++------..------######.                             
+                     ..--+++#####++++++-----------------.-----+########+++-                         
+          ....---+++#############+-+--+----------------------+##############+---..                  
+     ...-+######################+------+-------------------+######################+++++++-.......--+
+ ..-+###########################+----..-+-------------.---+#########################################
+-###############################++--....--..---------..-+###########################################
+#################################---------..--.....-..-#############################################
+#################################+-..-----...-....---+##############################################
+##################################+-........+++++###################################################
+###################################+-......+########################################################
+####################################-....-##########################################################
+#####################################-..-###########################################################
+#####################################+--############################################################
+######################################+#############################################################
+####################################################################################################
+####################################################################################################
+####################################################################################################
+####################################################################################################
+####################################################################################################
+####################################################################################################
+  </text>
+
+  <!-- RIGHT: Profile -->
+  <text x="430" y="40" fill="var(--fg)">
+    <tspan x="430" y="40">officialaritro@neofetch</tspan> ————————————————
+    <tspan x="430" y="65" class="muted">. </tspan><tspan class="key">OS</tspan>:<tspan class="muted"> ......... </tspan><tspan class="value">Windows, Linux, Android</tspan>
+    <tspan x="430" y="85" class="muted">. </tspan><tspan class="key">Uptime</tspan>:<tspan class="muted"> ...... </tspan><tspan class="value" id="age_data">—</tspan>
+    <tspan x="430" y="105" class="muted">. </tspan><tspan class="key">Host</tspan>:<tspan class="muted"> ........ </tspan><tspan class="value">Asansol Engineering College</tspan>
+    <tspan x="430" y="125" class="muted">. </tspan><tspan class="key">Kernel</tspan>:<tspan class="muted"> ...... </tspan><tspan class="value">B.Tech CSE Student</tspan>
+    <tspan x="430" y="145" class="muted">. </tspan><tspan class="key">IDE</tspan>:<tspan class="muted"> ........ </tspan><tspan class="value">VSCode, Jupyter, PyCharm</tspan>
+
+    <tspan x="430" y="170">- Tech Stack</tspan> ——————————
+    <tspan x="430" y="190" class="muted">. </tspan><tspan class="key">Lang</tspan>:<tspan class="muted"> .... </tspan><tspan class="value">Python, Java, JavaScript, HTML, CSS</tspan>
+    <tspan x="430" y="210" class="muted">. </tspan><tspan class="key">ML</tspan>:<tspan class="muted"> ...... </tspan><tspan class="value">TensorFlow, Keras, Scikit-learn, Pandas, Matplotlib, Seaborn, XAI</tspan>
+    <tspan x="430" y="230" class="muted">. </tspan><tspan class="key">Backend</tspan>:<tspan class="muted"> .... </tspan><tspan class="value">Django, Flask, FastAPI, NodeJS</tspan>
+    <tspan x="430" y="250" class="muted">. </tspan><tspan class="key">DB/Cloud</tspan>:<tspan class="muted"> .. </tspan><tspan class="value">PostgreSQL, SQL, MongoDB, Docker, AWS, Vercel</tspan>
+
+    <tspan x="430" y="275">- Projects</tspan> ——————————
+    <tspan x="430" y="295" class="muted">. </tspan><tspan class="key">Cirrhosis XAI</tspan>:<tspan class="muted"> </tspan><tspan class="value">92% F1; SHAP/LIME; XGBoost tuned</tspan>
+    <tspan x="430" y="315" class="muted">. </tspan><tspan class="key">OptiResume</tspan>:<tspan class="muted"> </tspan><tspan class="value">Gemini 1.5 Flash; 90%+ ATS match</tspan>
+    <tspan x="430" y="335" class="muted">. </tspan><tspan class="key">automailer.</tspan>:<tspan class="muted"> </tspan><tspan class="value">React+TS+Tailwind; 1000+ contacts</tspan>
+
+    <tspan x="430" y="360">- Contact</tspan> ——————————
+    <tspan x="430" y="380" class="muted">. </tspan><tspan class="key">Email</tspan>:<tspan class="muted"> ... </tspan><tspan class="value">aritroroy404@gmail.com</tspan>
+    <tspan x="430" y="400" class="muted">. </tspan><tspan class="key">Site</tspan>:<tspan class="muted"> .... </tspan><tspan class="value">aritroroy.tech</tspan>
+    <tspan x="430" y="420" class="muted">. </tspan><tspan class="key">LinkedIn</tspan>:<tspan class="muted"> </tspan><tspan class="value">linkedin.com/in/aritroroy404</tspan>
+    <tspan x="430" y="440" class="muted">. </tspan><tspan class="key">GitHub</tspan>:<tspan class="muted"> .. </tspan><tspan class="value">github.com/officialaritro</tspan>
+
+    <tspan x="430" y="465">- GitHub Stats</tspan> ——————————
+    <tspan x="430" y="485" class="muted">. </tspan><tspan class="key">Repos</tspan>:<tspan class="muted"> .. </tspan><tspan class="value" id="repo_data">—</tspan>
+      <tspan> | </tspan><tspan class="key">Stars</tspan>:<tspan class="muted"> .. </tspan><tspan class="value" id="star_data">—</tspan>
+    <tspan x="430" y="505" class="muted">. </tspan><tspan class="key">Commits</tspan>:<tspan class="muted"> </tspan><tspan class="value" id="commit_data">—</tspan>
+      <tspan> | </tspan><tspan class="key">Followers</tspan>:<tspan class="muted"> </tspan><tspan class="value" id="follower_data">—</tspan>
+    <tspan x="430" y="525" class="muted">. </tspan><tspan class="key">Lines of Code</tspan>:<tspan class="muted"> </tspan><tspan class="value" id="loc_data">—</tspan>
+     ( <tspan class="addColor" id="loc_add">—</tspan><tspan class="addColor">++</tspan>,
+       <tspan class="delColor" id="loc_del">—</tspan><tspan class="delColor">--</tspan> )
+  </text>
+</svg>

@@ -1,0 +1,44 @@
+name: Update Neofetch Card
+
+on:
+  schedule:
+    - cron: "0 0 * * *" 
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/update_card.js"
+      - "neofetch-card.svg"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install deps
+        run: |
+          npm init -y >/dev/null 2>&1 || true
+          npm i @octokit/rest @octokit/graphql jsdom
+
+      - name: Update SVG
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DOB_ISO: ${{ secrets.DOB_ISO }}
+        run: node scripts/update_card.js
+
+      - name: Commit changes
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git config user.name github-actions
+            git config user.email github-actions@github.com
+            git add neofetch-card.svg
+            git commit -m "chore: update neofetch-card [skip ci]"
+            git push
+          fi
