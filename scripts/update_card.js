@@ -4,7 +4,7 @@ import { graphql } from "@octokit/graphql";
 import fs from "fs";
 
 const USER = "officialaritro";
-const SVG_PATH = "neofetch-card.svg";
+const SVG_PATH = "aritro-neofetch.svg";
 const DOB_ISO = process.env.DOB_ISO;
 
 // Calculate human-readable age from DOB
