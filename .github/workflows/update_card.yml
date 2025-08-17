@@ -7,7 +7,7 @@ on:
   push:
     paths:
       - "scripts/update_card.js"
-      - "neofetch-card.svg"
+      - "aritro-neofetch.svg"
 
 jobs:
   build:
