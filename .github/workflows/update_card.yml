@@ -1,50 +1,257 @@
+# .github/workflows/update_card.yml
 name: Update Neofetch Card
 
 on:
   schedule:
+    # Run at 00:00 UTC daily (adjust timezone as needed)
     - cron: "0 0 * * *"
   workflow_dispatch:
+    inputs:
+      force_refresh:
+        description: "Force refresh cache"
+        required: false
+        default: false # Changed from 'false' to false
+        type: boolean
   push:
     paths:
       - "scripts/update_card.js"
       - "aritro-neofetch.svg"
+      - ".github/workflows/update_card.yml"
+
+env:
+  NODE_VERSION: "20"
+  CACHE_KEY_PREFIX: "neofetch-cache-v2"
 
 jobs:
-  build:
+  update-card:
+    name: Update Neofetch Card
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+
     permissions:
       contents: write
-    steps:
-      - uses: actions/checkout@v4
+      actions: read
 
-      - name: Setup Node
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 1
+
+      - name: 📊 Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "npm"
+          cache-dependency-path: "**/package*.json"
 
-      - name: Install deps
+      - name: 📦 Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            node_modules
+          key: ${{ runner.os }}-node-${{ env.NODE_VERSION }}-${{ hashFiles('**/package-lock.json', '**/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ env.NODE_VERSION }}-
+            ${{ runner.os }}-node-
+
+      - name: 💾 Cache GitHub data
+        uses: actions/cache@v4
+        with:
+          path: cache/
+          key: ${{ env.CACHE_KEY_PREFIX }}-${{ github.repository_owner }}-${{ github.run_number }}
+          restore-keys: |
+            ${{ env.CACHE_KEY_PREFIX }}-${{ github.repository_owner }}-
+            ${{ env.CACHE_KEY_PREFIX }}-
+
+      - name: 🔧 Install dependencies
         run: |
-          npm init -y >/dev/null 2>&1 || true
-          npm i @octokit/rest @octokit/graphql jsdom
+          # Create package.json if it doesn't exist
+          if [ ! -f "package.json" ]; then
+            npm init -y >/dev/null 2>&1
+          fi
 
-      - name: Update SVG
+          # Install required dependencies with specific versions for stability
+          npm install --save \
+            @octokit/rest@^20.0.0 \
+            @octokit/graphql@^7.0.0 \
+            jsdom@^23.0.0
+
+          echo "✅ Dependencies installed successfully"
+
+      - name: 🔍 Pre-flight checks
+        run: |
+          echo "🔍 Running pre-flight checks..."
+
+          # Check Node.js version
+          echo "Node.js version: $(node --version)"
+          echo "NPM version: $(npm --version)"
+
+          # Check required files
+          if [ ! -f "scripts/update_card.js" ]; then
+            echo "❌ update_card.js not found!"
+            exit 1
+          fi
+
+          if [ ! -f "aritro-neofetch.svg" ]; then
+            echo "❌ aritro-neofetch.svg not found!"
+            exit 1
+          fi
+
+          # Check environment variables
+          if [ -z "${{ secrets.GITHUB_TOKEN }}" ]; then
+            echo "❌ GITHUB_TOKEN not found!"
+            exit 1
+          fi
+
+          if [ -z "${{ secrets.DOB_ISO }}" ]; then
+            echo "⚠️ DOB_ISO not found, using fallback"
+          fi
+
+          # Create cache directory if it doesn't exist
+          mkdir -p cache
+
+          echo "✅ Pre-flight checks passed"
+
+      - name: 🚀 Update SVG card
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DOB_ISO: ${{ secrets.DOB_ISO }}
-        run: node scripts/update_card.js
-
-      - name: Debug
+          FORCE_REFRESH: ${{ github.event.inputs.force_refresh }}
         run: |
-          ls -la
-          git status
+          echo "🚀 Starting card update process..."
 
-      - name: Commit changes
-        if: success()
+          # Set force refresh flag if requested
+          if [ "$FORCE_REFRESH" = "true" ]; then
+            echo "🔄 Force refresh requested, clearing cache..."
+            rm -rf cache/*.json
+          fi
+
+          # Run the update script with error handling
+          set -e
+          node scripts/update_card.js
+
+          echo "✅ Card update completed successfully"
+
+      - name: 📋 Post-update verification
+        id: verify # Added ID to reference this step
         run: |
+          echo "📋 Verifying update results..."
+
+          # Check if SVG was modified
+          if git diff --quiet aritro-neofetch.svg; then
+            echo "svg_changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "svg_changed=true" >> "$GITHUB_OUTPUT"
+            
+            # Show diff stats
+            echo "📊 Changes made:"
+            git diff --stat aritro-neofetch.svg
+          fi
+
+          # Check cache status
+          if [ -d "cache" ] && [ "$(ls -A cache)" ]; then
+            cache_files=$(ls cache | wc -l)
+            echo "💾 Cache contains $cache_files files"
+            ls -la cache/
+          else
+            echo "📭 No cache files found"
+          fi
+
+      - name: 🎯 Commit and push changes
+        if: steps.verify.outputs.svg_changed == 'true' # Updated condition
+        run: |
+          echo "🎯 Committing changes..."
+
+          # Configure git
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if [[ -n "$(git status --porcelain)" ]]; then
-            git add aritro-neofetch.svg
-            git commit -m "chore: update aritro-neofetch [skip ci]"
-            git push
+
+          # Add and commit changes
+          git add aritro-neofetch.svg
+
+          # Create commit with timestamp and stats
+          commit_msg="chore: update neofetch card - $(date -u +"%Y-%m-%d %H:%M UTC")"
+
+          # Add some stats to commit message if possible
+          if command -v wc >/dev/null; then
+            lines_changed=$(git diff --cached --numstat aritro-neofetch.svg | cut -f1,2 | tr '\t' '+')
+            if [ -n "$lines_changed" ]; then
+              commit_msg="$commit_msg ($lines_changed lines)"
+            fi
           fi
+
+          git commit -m "$commit_msg [skip ci]"
+
+          # Push with retry logic
+          max_attempts=3
+          attempt=1
+
+          while [ $attempt -le $max_attempts ]; do
+            echo "📤 Push attempt $attempt of $max_attempts..."
+            
+            if git push origin HEAD; then
+              echo "✅ Successfully pushed changes"
+              break
+            else
+              if [ $attempt -eq $max_attempts ]; then
+                echo "❌ Failed to push after $max_attempts attempts"
+                exit 1
+              fi
+              
+              echo "⚠️ Push failed, retrying in 5 seconds..."
+              sleep 5
+              attempt=$((attempt + 1))
+            fi
+          done
+
+      - name: 📊 Generate summary
+        if: always()
+        run: |
+          echo "# 🎨 Neofetch Card Update Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          # Add status
+          if [ "${{ job.status }}" = "success" ]; then
+            echo "✅ **Status**: Success" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **Status**: Failed" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          echo "🕒 **Run Time**: $(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> $GITHUB_STEP_SUMMARY
+          echo "🔧 **Trigger**: ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
+
+          # Add change status
+          if [ "${svg_changed:-false}" = "true" ]; then
+            echo "📝 **Changes**: SVG updated and committed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "📝 **Changes**: No changes needed" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          # Add cache info
+          if [ -d "cache" ] && [ "$(ls -A cache 2>/dev/null)" ]; then
+            cache_size=$(du -sh cache 2>/dev/null | cut -f1 || echo "Unknown")
+            echo "💾 **Cache Size**: $cache_size" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "---" >> $GITHUB_STEP_SUMMARY
+          echo "*Automated update by GitHub Actions* 🤖" >> $GITHUB_STEP_SUMMARY
+
+      - name: 🧹 Cleanup on failure
+        if: failure()
+        run: |
+          echo "🧹 Cleaning up after failure..."
+
+          # Restore SVG backup if it exists
+          if [ -f "aritro-neofetch.svg.bak" ]; then
+            echo "🔄 Restoring SVG backup..."
+            mv aritro-neofetch.svg.bak aritro-neofetch.svg
+          fi
+
+          # Reset any staged changes
+          git reset HEAD --hard 2>/dev/null || true
+
+          echo "✅ Cleanup completed"

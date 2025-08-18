@@ -1,0 +1,35 @@
+{
+  "name": "github-neofetch-card",
+  "version": "1.0.0",
+  "description": "Automated GitHub neofetch card updater with caching",
+  "main": "scripts/update_card.js",
+  "type": "module",
+  "scripts": {
+    "update": "node scripts/update_card.js",
+    "diagnostic": "node scripts/diagnostic.js",
+    "test": "npm run diagnostic",
+    "setup": "npm install && npm run diagnostic"
+  },
+  "dependencies": {
+    "@octokit/rest": "^20.0.0",
+    "@octokit/graphql": "^7.0.0",
+    "jsdom": "^23.0.0"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "github",
+    "neofetch",
+    "automation",
+    "svg",
+    "stats"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/officialaritro/your-repo.git"
+  }
+}
