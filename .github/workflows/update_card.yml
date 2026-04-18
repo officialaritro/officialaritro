@@ -51,6 +51,7 @@ jobs:
           set -euo pipefail
           test -f package.json
           test -f scripts/update_card.js
+          test -f scripts/diagnostic.js
           test -f aritro-neofetch.svg
 
           if [ -z "${{ secrets.GH_STATS_TOKEN }}" ]; then
@@ -64,6 +65,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Validate SVG placeholders
+        run: npm run diagnostic
 
       - name: Update card
         env:
