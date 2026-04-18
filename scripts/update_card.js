@@ -146,13 +146,46 @@ async function listRepoLanguages(octokit, owner, repo) {
   return response.data;
 }
 
-async function getGraphStats(gqlClient) {
-  const from = "2008-01-01T00:00:00Z";
-  const to = new Date().toISOString();
+function addMonths(date, months) {
+  const next = new Date(date.getTime());
+  next.setUTCMonth(next.getUTCMonth() + months);
+  return next;
+}
 
-  const query = `
-    query ProfileStats($login: String!, $from: DateTime!, $to: DateTime!) {
+function toIso(date) {
+  return date.toISOString();
+}
+
+function buildContributionWindows(startIso, endDate) {
+  const windows = [];
+  let cursor = new Date(startIso);
+
+  while (cursor < endDate) {
+    let next = addMonths(cursor, 12);
+    if (next > endDate) {
+      next = endDate;
+    }
+
+    windows.push({
+      from: toIso(cursor),
+      to: toIso(next),
+    });
+
+    if (next.getTime() === cursor.getTime()) {
+      break;
+    }
+
+    cursor = next;
+  }
+
+  return windows;
+}
+
+async function getGraphStats(gqlClient) {
+  const profileQuery = `
+    query ProfileStatsBase($login: String!) {
       user(login: $login) {
+        createdAt
         followers {
           totalCount
         }
@@ -168,6 +201,18 @@ async function getGraphStats(gqlClient) {
         ) {
           totalCount
         }
+      }
+    }
+  `;
+
+  const profileData = await withRetry(() => gqlClient(profileQuery, { login: USER }));
+  if (!profileData?.user) {
+    throw new Error(`GitHub user not found: ${USER}`);
+  }
+
+  const contributionQuery = `
+    query ProfileContributionWindow($login: String!, $from: DateTime!, $to: DateTime!) {
+      user(login: $login) {
         contributionsCollection(from: $from, to: $to) {
           totalCommitContributions
           totalIssueContributions
@@ -180,12 +225,45 @@ async function getGraphStats(gqlClient) {
     }
   `;
 
-  const data = await withRetry(() => gqlClient(query, { login: USER, from, to }));
-  if (!data?.user) {
-    throw new Error(`GitHub user not found: ${USER}`);
+  const now = new Date();
+  const windows = buildContributionWindows(profileData.user.createdAt, now);
+
+  const contributionTotals = {
+    totalCommitContributions: 0,
+    totalIssueContributions: 0,
+    totalPullRequestContributions: 0,
+    totalRepositoryContributions: 0,
+    restrictedContributionsCount: 0,
+    hasAnyRestrictedContributions: false,
+  };
+
+  for (const window of windows) {
+    const contributionData = await withRetry(() =>
+      gqlClient(contributionQuery, {
+        login: USER,
+        from: window.from,
+        to: window.to,
+      })
+    );
+
+    const collection = contributionData?.user?.contributionsCollection;
+    if (!collection) {
+      continue;
+    }
+
+    contributionTotals.totalCommitContributions += collection.totalCommitContributions;
+    contributionTotals.totalIssueContributions += collection.totalIssueContributions;
+    contributionTotals.totalPullRequestContributions += collection.totalPullRequestContributions;
+    contributionTotals.totalRepositoryContributions += collection.totalRepositoryContributions;
+    contributionTotals.restrictedContributionsCount += collection.restrictedContributionsCount;
+    contributionTotals.hasAnyRestrictedContributions =
+      contributionTotals.hasAnyRestrictedContributions || collection.hasAnyRestrictedContributions;
   }
 
-  return data.user;
+  return {
+    ...profileData.user,
+    contributionsCollection: contributionTotals,
+  };
 }
 
 async function buildStats(octokit, gqlClient, cache, forceRefresh) {
