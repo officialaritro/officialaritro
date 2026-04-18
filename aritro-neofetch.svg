@@ -42,25 +42,25 @@ text, tspan {white-space: pre;}
 <tspan x="25" y="365">.:'      | (-_ _--')  :          L            !</tspan>
 <tspan x="25" y="380">.'.       '.  Y    _.'             \,         :</tspan>
 <tspan x="25" y="395"> .          '-----'                 !          .</tspan>
-</text>
 <text x="420" y="35" fill="#c9d1d9">
+</text>
 <tspan x="420" y="35">aritroroy@tech</tspan><tspan class="cc"> ————————————————————————————————————————————</tspan>
-<tspan x="420" y="55" class="cc">. </tspan><tspan class="key">OS</tspan><tspan class="cc">: ................. </tspan><tspan class="value">macOS, Windows 11, Android 15</tspan>
-<tspan x="420" y="75" class="cc">. </tspan><tspan class="key">Uptime</tspan><tspan class="cc">: .................... </tspan><tspan class="value" id="age_data">21 years, 10 months, 29 days</tspan>
-<tspan x="420" y="95" class="cc">. </tspan><tspan class="key">Host</tspan><tspan class="cc">: .................. </tspan><tspan class="value">Asansol Engineering College</tspan>
-<tspan x="420" y="115" class="cc">. </tspan><tspan class="key">Kernel</tspan><tspan class="cc">: ....... </tspan><tspan class="value">Backend Engineer at WhatBytes | CS Undergrad </tspan>
-<tspan x="420" y="135" class="cc">. </tspan><tspan class="key">IDE</tspan><tspan class="cc">: ......................... </tspan><tspan class="value">VS Code, Antigravity, Cursor</tspan>
+<tspan x="420" y="55" class="cc">. </tspan><tspan class="key">OS</tspan><tspan class="cc">: ...... </tspan><tspan class="value">macOS, Windows 11, Android 15</tspan>
+<tspan x="420" y="75" class="cc">. </tspan><tspan class="key">Uptime</tspan><tspan class="cc">: .. </tspan><tspan class="value" id="age_data">21 years, 10 months, 29 days</tspan>
+<tspan x="420" y="95" class="cc">. </tspan><tspan class="key">Host</tspan><tspan class="cc">: .... </tspan><tspan class="value">Asansol Engineering College</tspan>
+<tspan x="420" y="115" class="cc">. </tspan><tspan class="key">Kernel</tspan><tspan class="cc">: .. </tspan><tspan class="value">Backend Engineer at WhatBytes | CS Undergrad</tspan>
+<tspan x="420" y="135" class="cc">. </tspan><tspan class="key">IDE</tspan><tspan class="cc">: ..... </tspan><tspan class="value">VS Code, Antigravity, Cursor</tspan>
 <tspan x="420" y="155" class="cc">. </tspan>
-<tspan x="420" y="175" class="cc">. </tspan><tspan class="key">Languages</tspan><tspan class="cc">.</tspan><tspan class="key">Programming</tspan><tspan class="cc">: ......... </tspan><tspan class="value">Python, SQL, Java, JavaScript</tspan>
-<tspan x="420" y="195" class="cc">. </tspan><tspan class="key">Stack</tspan><tspan class="cc">.</tspan><tspan class="key">Backend</tspan><tspan class="cc">: ........ </tspan><tspan class="value">FastAPI, Django REST, Flask, Celery</tspan>
-<tspan x="420" y="215" class="cc">. </tspan><tspan class="key">Stack</tspan><tspan class="cc">.</tspan><tspan class="key">Data</tspan><tspan class="cc">: ....... </tspan><tspan class="value">PostgreSQL, Redis, Kafka, Qdrant</tspan>
-<tspan x="420" y="235" class="cc">. </tspan><tspan class="key">Cloud</tspan><tspan class="cc">.</tspan><tspan class="key">DevOps</tspan><tspan class="cc">: ......... </tspan><tspan class="value">AWS, Docker, Kubernetes, GitHub Actions</tspan>
-<tspan x="420" y="255" class="cc">. </tspan><tspan class="key">Focus</tspan><tspan class="cc">: ..............</tspan><tspan class="value">APIs, Data Infra, AI Tooling</tspan>
+<tspan x="420" y="175" class="cc">. </tspan><tspan class="key">Languages</tspan><tspan class="cc">.</tspan><tspan class="key">Programming</tspan><tspan class="cc">: .. </tspan><tspan class="value">Python, SQL, Java, JavaScript</tspan>
+<tspan x="420" y="195" class="cc">. </tspan><tspan class="key">Stack</tspan><tspan class="cc">.</tspan><tspan class="key">Backend</tspan><tspan class="cc">: .......... </tspan><tspan class="value">FastAPI, Django REST, Flask, Celery</tspan>
+<tspan x="420" y="215" class="cc">. </tspan><tspan class="key">Stack</tspan><tspan class="cc">.</tspan><tspan class="key">Data</tspan><tspan class="cc">: ............. </tspan><tspan class="value">PostgreSQL, Redis, Kafka, Qdrant</tspan>
+<tspan x="420" y="235" class="cc">. </tspan><tspan class="key">Cloud</tspan><tspan class="cc">.</tspan><tspan class="key">DevOps</tspan><tspan class="cc">: ........... </tspan><tspan class="value">AWS, Docker, Kubernetes, GitHub Actions</tspan>
+<tspan x="420" y="255" class="cc">. </tspan><tspan class="key">Focus</tspan><tspan class="cc">: .................. </tspan><tspan class="value">APIs, Data Infra, AI Tooling</tspan>
 <tspan x="420" y="310" class="cc">- Contact </tspan><tspan class="cc">—————————————————————————————————————————————————</tspan>
-<tspan x="420" y="330" class="cc">. </tspan><tspan class="key">Email</tspan><tspan class="cc">.</tspan><tspan class="key">Personal</tspan><tspan class="cc">: .................. </tspan><tspan class="value">aritroroy404@gmail.com</tspan>
-<tspan x="420" y="370" class="cc">. </tspan><tspan class="key">Portfolio</tspan><tspan class="cc">: ............................... </tspan><tspan class="value">aritroroy.tech</tspan>
-<tspan x="420" y="390" class="cc">. </tspan><tspan class="key">LinkedIn</tspan><tspan class="cc">: .................................. </tspan><tspan class="value">aritroroy404</tspan>
-<tspan x="420" y="410" class="cc">. </tspan><tspan class="key">GitHub</tspan><tspan class="cc">: .................................. </tspan><tspan class="value">officialaritro</tspan>
+<tspan x="420" y="330" class="cc">. </tspan><tspan class="key">Email</tspan><tspan class="cc">.</tspan><tspan class="key">Personal</tspan><tspan class="cc">: .. </tspan><tspan class="value">aritroroy404@gmail.com</tspan>
+<tspan x="420" y="370" class="cc">. </tspan><tspan class="key">Portfolio</tspan><tspan class="cc">: ....... </tspan><tspan class="value">aritroroy.tech</tspan>
+<tspan x="420" y="390" class="cc">. </tspan><tspan class="key">LinkedIn</tspan><tspan class="cc">: ........ </tspan><tspan class="value">aritroroy404</tspan>
+<tspan x="420" y="410" class="cc">. </tspan><tspan class="key">GitHub</tspan><tspan class="cc">: .......... </tspan><tspan class="value">officialaritro</tspan>
 <tspan x="420" y="445" class="cc">- GitHub Stats </tspan><tspan class="cc">————————————————————————————————————————————</tspan>
 <tspan x="420" y="470" class="cc">. </tspan><tspan class="key">Repos</tspan>:<tspan class="cc" id="repo_data_dots"> ..... </tspan><tspan class="value" id="repo_data">22</tspan> {<tspan class="key">Contributed</tspan>: <tspan class="value" id="contrib_data">8</tspan>} | <tspan class="key">Stars</tspan>:<tspan class="cc" id="star_data_dots"> ............. </tspan><tspan class="value" id="star_data">8</tspan>
 <tspan x="420" y="490" class="cc">. </tspan><tspan class="key">Commits</tspan>:<tspan class="cc" id="commit_data_dots"> ................... </tspan><tspan class="value" id="commit_data">83</tspan> | <tspan class="key">Followers</tspan>:<tspan class="cc" id="follower_data_dots"> ......... </tspan><tspan class="value" id="follower_data">3</tspan>
