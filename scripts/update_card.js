@@ -2,12 +2,24 @@ import { Octokit } from "@octokit/rest";
 import { graphql } from "@octokit/graphql";
 import fs from "fs";
 import path from "path";
+import { pathToFileURL } from "url";
 
 const USER = process.env.GITHUB_USERNAME || "officialaritro";
 const SVG_PATH = "aritro-neofetch.svg";
 const CACHE_DIR = "cache";
 const CACHE_FILE = path.join(CACHE_DIR, `${USER}_cache.json`);
 const DOB_ISO = process.env.DOB_ISO;
+const REQUIRED_PLACEHOLDER_IDS = [
+  "age_data",
+  "repo_data",
+  "contrib_data",
+  "star_data",
+  "commit_data",
+  "follower_data",
+  "loc_data",
+  "loc_add",
+  "loc_del",
+];
 
 const LOC_BYTES_PER_LINE = {
   JavaScript: 34,
@@ -345,61 +357,73 @@ function updateSvg(stats) {
   let svg = fs.readFileSync(SVG_PATH, "utf8");
   const original = svg;
 
+  const missingIds = REQUIRED_PLACEHOLDER_IDS.filter(
+    (id) => !new RegExp(`<tspan\\b[^>]*\\bid="${id}"[^>]*>`, "i").test(svg)
+  );
+
+  if (missingIds.length > 0) {
+    throw new Error(
+      `SVG placeholders missing or changed: ${missingIds.join(", ")}. Expected IDs: ${REQUIRED_PLACEHOLDER_IDS.join(", ")}`
+    );
+  }
+
   const replacements = [
     {
       name: "uptime",
-      pattern: /(<tspan class="value" id="age_data">)[^<]*(<\/tspan>)/g,
+      pattern: /(<tspan\b[^>]*\bid="age_data"[^>]*>)[^<]*(<\/tspan>)/g,
       value: ageText,
     },
     {
       name: "repos",
-      pattern: /(<tspan class="value" id="repo_data">)[^<]*(<\/tspan>)/g,
+      pattern: /(<tspan\b[^>]*\bid="repo_data"[^>]*>)[^<]*(<\/tspan>)/g,
       value: String(stats.repoCount),
     },
     {
       name: "contributed repos",
-      pattern: /(<tspan class="value" id="contrib_data">)[^<]*(<\/tspan>)/g,
+      pattern: /(<tspan\b[^>]*\bid="contrib_data"[^>]*>)[^<]*(<\/tspan>)/g,
       value: String(stats.contributedCount),
     },
     {
       name: "stars",
-      pattern: /(<tspan class="value" id="star_data">)[^<]*(<\/tspan>)/g,
+      pattern: /(<tspan\b[^>]*\bid="star_data"[^>]*>)[^<]*(<\/tspan>)/g,
       value: String(stats.stars),
     },
     {
       name: "commits",
-      pattern: /(<tspan class="value" id="commit_data">)[^<]*(<\/tspan>)/g,
+      pattern: /(<tspan\b[^>]*\bid="commit_data"[^>]*>)[^<]*(<\/tspan>)/g,
       value: stats.commitCount.toLocaleString("en-US"),
     },
     {
       name: "followers",
-      pattern: /(<tspan class="value" id="follower_data">)[^<]*(<\/tspan>)/g,
+      pattern: /(<tspan\b[^>]*\bid="follower_data"[^>]*>)[^<]*(<\/tspan>)/g,
       value: String(stats.followers),
     },
     {
       name: "loc",
-      pattern: /(<tspan class="value" id="loc_data">)[^<]*(<\/tspan>)/g,
+      pattern: /(<tspan\b[^>]*\bid="loc_data"[^>]*>)[^<]*(<\/tspan>)/g,
       value: stats.linesOfCode.toLocaleString("en-US"),
     },
     {
       name: "loc add",
-      pattern: /(<tspan class="addColor" id="loc_add">)[^<]*(<\/tspan>)/g,
+      pattern: /(<tspan\b[^>]*\bid="loc_add"[^>]*>)[^<]*(<\/tspan>)/g,
       value: stats.linesAdded.toLocaleString("en-US"),
     },
     {
       name: "loc delete",
-      pattern: /(<tspan class="delColor" id="loc_del">)[^<]*(<\/tspan>)/g,
+      pattern: /(<tspan\b[^>]*\bid="loc_del"[^>]*>)[^<]*(<\/tspan>)/g,
       value: stats.linesDeleted.toLocaleString("en-US"),
     },
   ];
 
   const missing = [];
   for (const replacement of replacements) {
-    const before = svg;
-    svg = svg.replace(replacement.pattern, `$1${replacement.value}$2`);
-    if (svg === before) {
+    const testPattern = new RegExp(replacement.pattern.source, replacement.pattern.flags.replace("g", ""));
+    if (!testPattern.test(svg)) {
       missing.push(replacement.name);
+      continue;
     }
+
+    svg = svg.replace(replacement.pattern, `$1${replacement.value}$2`);
   }
 
   if (missing.length > 0) {
@@ -467,7 +491,13 @@ async function main() {
   }
 }
 
-main().catch((error) => {
-  console.error(`Update failed: ${error.message}`);
-  process.exit(1);
-});
+const scriptUrl = process.argv[1] ? pathToFileURL(path.resolve(process.argv[1])).href : null;
+
+if (scriptUrl && import.meta.url === scriptUrl) {
+  main().catch((error) => {
+    console.error(`Update failed: ${error.message}`);
+    process.exit(1);
+  });
+}
+
+export { updateSvg, humanAge, bytesToEstimatedLoc, buildContributionWindows };
